@@ -36,60 +36,23 @@
         nav a { text-decoration: none; color: var(--text-dim); margin-left: 40px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; transition: 0.4s var(--cubic); }
         nav a:hover { color: var(--text); letter-spacing: 5px; }
 
-        /* RESTRUCTURED HERO SECTION WITH IMAGE */
-        .hero { 
-            height: 100vh; 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; /* Image on left, text on right */
-            align-items: center; 
-            position: relative; 
-            border-bottom: 1px solid var(--border); 
-            padding-top: 100px; /* Adjust for fixed header */
+        /* HERO */
+        .hero { height: 100vh; display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; position: relative; border-bottom: 1px solid var(--border); }
+        .hero-left h1 { font-size: clamp(3.5rem, 9vw, 8.5rem); font-weight: 900; line-height: 0.8; letter-spacing: -0.05em; text-transform: uppercase; }
+        
+        .hero-subtext { 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 6px; 
+            color: var(--accent); 
+            margin-top: 25px; 
+            font-weight: 900; 
+            opacity: 0.9;
         }
 
-        /* Hero Image Container */
-        .hero-image-wrap {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-right: 1px solid var(--border);
-            overflow: hidden;
-            background: var(--surface);
-        }
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Crops image to fit container */
-            filter: grayscale(1); /* Matches Noir aesthetic */
-            transition: 1s var(--cubic);
-            opacity: 0.8;
-        }
-        .hero:hover .hero-image {
-            filter: grayscale(0);
-            opacity: 1;
-            transform: scale(1.02);
-        }
-
-        /* Hero Content Container (Name & About) */
-        .hero-content {
-            padding: 0 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-        }
-
-        .hero-left-text { margin-bottom: 60px; }
-        .hero-left-text h1 { font-size: clamp(3rem, 8vw, 7rem); font-weight: 900; line-height: 0.8; letter-spacing: -0.05em; text-transform: uppercase; }
-        .hero-subtext { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 6px; color: var(--accent); margin-top: 25px; font-weight: 900; opacity: 0.9; }
-
-        .hero-right-text { border-top: 1px solid var(--border); padding-top: 40px; }
-        .hero-right-text p { font-size: 1.1rem; color: var(--text-dim); max-width: 380px; line-height: 1.6; margin-bottom: 30px; }
-        .hero-right-text .serif { font-size: 2.2rem; color: var(--accent); display: block; margin-bottom: 15px; font-family: 'Playfair Display'; font-weight: 900; font-style: italic; }
-
-        /* ... rest of the CSS remains unchanged ... */
+        .hero-right { border-left: 1px solid var(--border); padding-left: 60px; height: 350px; display: flex; flex-direction: column; justify-content: center; }
+        .hero-right p { font-size: 1.1rem; color: var(--text-dim); max-width: 380px; line-height: 1.6; margin-bottom: 30px; }
+        .hero-right .serif { font-size: 2.2rem; color: var(--accent); display: block; margin-bottom: 15px; font-family: 'Playfair Display'; font-weight: 900; font-style: italic; }
 
         /* STATS BAR */
         .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--border); }
@@ -142,12 +105,9 @@
         footer { padding: 40px 80px; border-top: 1px solid var(--border); font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; text-align: center; }
 
         @media (max-width: 1024px) {
-            .hero { grid-template-columns: 1fr; height: auto; }
-            .hero-image-wrap { border-right: none; border-bottom: 1px solid var(--border); height: 50vh; }
-            .hero-content { padding: 40px 30px; }
-            .hero-left-text h1 { font-size: 3rem; }
+            .hero { grid-template-columns: 1fr; height: auto; padding-top: 150px; }
+            .hero-right { border-left: none; border-top: 1px solid var(--border); padding: 40px 0; }
             .stats-bar { grid-template-columns: repeat(2, 1fr); }
-            .skills-grid { grid-template-columns: repeat(2, 1fr); }
             .work-card, .work-card.large, .work-card.small { grid-column: span 12; min-height: 250px; }
             .exp-row { grid-template-columns: 1fr; gap: 20px; padding: 40px 0; }
             .exp-company { text-align: left; margin-top: 10px; }
@@ -171,21 +131,14 @@
 
     <div class="container">
         <section class="hero">
-            <div class="hero-image-wrap">
-                <img src="PASTE_YOUR_IMAGE_LINK_HERE" alt="Youssef Hafez Portrait" class="hero-image">
+            <div class="hero-left">
+                <h1>YOUSSEF<br>HAFEZ</h1>
+                <p class="hero-subtext">Content Creator and Social Media Specialist</p>
             </div>
-
-            <div class="hero-content">
-                <div class="hero-left-text">
-                    <h1>YOUSSEF<br>HAFEZ</h1>
-                    <p class="hero-subtext">Content Creator and Social Media Specialist</p>
-                </div>
-                
-                <div class="hero-right-text">
-                    <span class="serif">About</span>
-                    <p>Storyteller with 3+ years in digital marketing, campaign management, and brand strategy. I blend creativity with data to build brands that people actually care about.</p>
-                    <div class="section-tag" style="margin:0;">Based in Cairo, EG</div>
-                </div>
+            <div class="hero-right">
+                <span class="serif">About</span>
+                <p>Storyteller with 3+ years in digital marketing, campaign management, and brand strategy. I blend creativity with data to build brands that people actually care about.</p>
+                <div class="section-tag" style="margin:0;">Based in Cairo, EG</div>
             </div>
         </section>
 
